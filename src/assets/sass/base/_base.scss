@@ -1,0 +1,253 @@
+/* base style for the whole structure */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: $DM_SANS;
+}
+
+/**
+ * Set up a decent box model on the root element
+ */
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: $DM_SANS;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $gray-base;
+  background-color: $white;
+  font-weight: 400;
+
+  @include breakpoint(mobile) {
+    background-color: #fafbfc;
+  }
+}
+body,
+#root,
+.fot-main {
+  height: 100%;
+  overflow: auto;
+}
+
+/**
+   * Basic styles for links
+   */
+a {
+  color: $primary-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $primary-color;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+.table {
+  tr {
+    td {
+      vertical-align: middle;
+    }
+  }
+}
+
+.list-none {
+  padding-left: 0;
+  li {
+    list-style: none;
+  }
+}
+
+ul {
+  padding-left: 20px;
+  li::marker {
+    color: $primaryLightColor;
+  }
+}
+
+strong {
+  font-weight: 700;
+}
+
+.absolute-link {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+
+.primary-text {
+  color: $primary-color;
+}
+
+input,
+select,
+textarea {
+  &:focus {
+    outline: none;
+  }
+}
+
+.flex-row {
+  @include flexbox;
+}
+.space-between {
+  @include justify-content($value: space-between);
+}
+.align-center {
+  @include align-items($value: center);
+}
+.justify-center {
+  @include justify-content($value: center);
+}
+
+.flex-wrap {
+  @include flex-wrap($value: wrap);
+}
+.content-wrapper {
+  padding: 30px 0;
+}
+.h-100 {
+  height: 100%;
+}
+.w-100 {
+  width: 100%;
+}
+.w-auto {
+  width: auto !important;
+}
+.d-none {
+  display: none;
+}
+.secBG {
+  background-color: $secBGcolor;
+  .lang-bottom {
+    background-color: $secBGcolor;
+  }
+}
+.lang-footer {
+  padding-bottom: 50px;
+}
+.complete-screen {
+  .cs-img {
+    padding: 20px 0;
+  }
+  .cs-title {
+    margin-bottom: 10px;
+  }
+  .button-group {
+    margin-top: 30px;
+  }
+}
+.toastMessage {
+  @include flexbox;
+  @include align-items($value: center);
+  bottom: 0;
+  top: inherit !important;
+  width: 100% !important;
+  max-width: 480px !important;
+  left: 50%;
+  right: inherit !important;
+  @include transform(translate(0, 100%));
+  @include transition(all ease 0.4s);
+
+  &.show {
+    @include transform(translate(-50%, 0));
+  }
+  .btn-icon {
+    width: 40px;
+    height: 100%;
+    font-size: 12px;
+    margin-top: 0;
+    top: 0 !important;
+    right: 0 !important;
+    border-radius: 0 !important;
+    background-color: rgba(49, 49, 49, 0.12);
+    color: #fff;
+    cursor: pointer;
+  }
+  .toast-body {
+    padding: 10px 50px 10px 8px !important;
+  }
+}
+
+.bg-container {
+  @include breakpoint(mobile) {
+    background-color: $white;
+    @include box-shadow(0 0 5px #f2f2f2);
+    @include border-radius(5px);
+    padding: 15px;
+
+    .heading {
+      margin: -15px -15px 15px;
+      background-color: #f7fff5;
+      padding: 10px 15px;
+    }
+  }
+}
+
+@include breakpoint(mobile) {
+  .whitebox-480 {
+    max-width: 480px;
+    background: $white;
+    padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    @include box-shadow(0px 0px 8px 1px rgba($gray-base, 0.1));
+  }
+  .md-hide {
+    display: none !important;
+  }
+}
+
+@include breakpoint(md-tablet) {
+  .lg-hide {
+    display: none !important;
+  }
+}
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  @include appearance(none);
+}
+
+.no-item-blk {
+  text-align: center;
+  padding: 100px 20px;
+
+  p {
+    margin-top: 10px;
+  }
+}
+.plr-0 {
+  padding: 0;
+}

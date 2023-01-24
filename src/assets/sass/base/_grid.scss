@@ -1,0 +1,60 @@
+/* Define grid :- row and column structure and max width container size */
+
+.fot-container {
+  width: 100%;
+  max-width: $container-max-width;
+  padding-right: $container-padding;
+  padding-left: $container-padding;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-left: -$grid-gutter / 2;
+  margin-right: -$grid-gutter / 2;
+
+  &.row--no-gutter {
+    margin: 0;
+  }
+}
+
+$screen-sizes: (
+  xs 0,
+  sm $screen-sm,
+  md $screen-md,
+  lg $screen-lg,
+  xl $screen-xl
+);
+
+[class*="col-"] {
+  display: block;
+  width: 100%;
+  padding-left: $grid-gutter / 2;
+  padding-right: $grid-gutter / 2;
+
+  .row-no-gutter > & {
+    padding: 0;
+  }
+}
+
+@each $screen-size in $screen-sizes {
+  $size-name: nth($screen-size, 1);
+  $size-width: nth($screen-size, 2);
+
+  @media (min-width: $size-width) {
+    @for $i from 1 through $cols {
+      .col-#{$size-name}-#{$i} {
+        -webkit-flex: 0 0 (100% / $cols * $i);
+        -ms-flex: 0 0 (100% / $cols * $i);
+        flex: 0 0 (100% / $cols * $i);
+        max-width: 100% / $cols * $i;
+      }
+    }
+  }
+}

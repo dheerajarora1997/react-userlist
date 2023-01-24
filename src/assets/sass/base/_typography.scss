@@ -1,0 +1,67 @@
+/**
+ * Basic typography style for text
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $Epilogue;
+  margin: 0;
+}
+h1,
+.heading1 {
+  font-size: $font-size-h1;
+  line-height: 1.13;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+h2,
+.heading2 {
+  font-size: $font-size-h2;
+  font-weight: 600;
+}
+h3,
+.heading3 {
+  font-size: $font-size-h3;
+  font-weight: 600;
+}
+h4,
+.heading4 {
+  font-size: $font-size-h4;
+}
+
+.small-txt {
+  font-size: $font-size-base-small;
+}
+
+.border-heading-blk {
+  @include box-shadow(0px 1px 1px rgba(0, 0, 0, 0.09));
+  background-color: $white;
+  @include breakpoint(mobile) {
+    margin-top: 10px;
+  }
+  .fot-container {
+    min-height: 56px;
+    @include flexbox;
+    @include align-items($value: center);
+    @include justify-content($value: space-between);
+  }
+  .back-button {
+    background-color: rgba(247, 249, 253, 1);
+    @include border-radius(100%);
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+  }
+  .heading {
+    font-size: 18px;
+    font-weight: 600;
+    font-family: $Epilogue;
+  }
+
+  button {
+    width: auto;
+  }
+}

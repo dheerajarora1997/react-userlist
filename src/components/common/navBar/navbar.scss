@@ -1,0 +1,27 @@
+@import '../../../assets/sass/abstracts/variables';
+
+.top-nav {
+  .nav-link {
+    color: $white;
+    position: relative;
+    &:after {
+      height: 2px;
+      width: 0;
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      transition: width ease .3s;
+      content: "";
+      background-color: $white;
+    }
+    &.active {
+      font-weight: 600;
+    }
+    &.active, &:hover {
+      color: $white;
+      &:after {
+        width: 100%;
+      }
+    }
+  }
+}

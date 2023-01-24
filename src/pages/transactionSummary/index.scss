@@ -1,0 +1,32 @@
+@import '../../assets/sass/abstracts/variables';
+.filter-nav {
+    .btn {
+        text-decoration: none;
+        outline: none;
+        position: relative;
+        color: $dark;
+        text-transform: capitalize;
+        &:after {
+            height: 2px;
+            background-color: transparent;
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            content: "";
+        }
+        &.active {
+            color: $primary;
+            &:after {
+                background-color: $primary;
+            }
+        }
+    }
+}
+
+.btn.btn-link {
+    &:hover, &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+}
